@@ -4,7 +4,7 @@ const email = document.getElementById('email')
 const password = document.getElementById('password')
 const password2 = document.getElementById('password2')
 
-
+var flag = 0;
 function showError(input, message) {
     const formControl = input.parentElement;
     formControl.className = 'form-control error';
@@ -31,18 +31,15 @@ function showError(input, message) {
 
   function checkRequired(inputArr) {
     let isRequired = false;
-    var itemIsRequired = 0
+    var itemIsRequired = new Array();
     inputArr.forEach(function(input) {
       if (input.value.trim() === '') {
         showError(input, `${getFieldName(input)} is required`);
       } else {
         showSuccess(input);
-        itemIsRequired = itemIsRequired +1;
+        isRequired = true
       }
     });
-    if(itemIsRequired == inputArr.length){
-      isRequired = true;
-    }
     return isRequired;
   }
   
@@ -79,10 +76,16 @@ function showError(input, message) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
   
-    if(checkRequired([username, email, password, password2])){
+    if(checkRequired([username])){
       checkLength(username, 3, 15);
-      checkLength(password, 6, 25);
+    }
+    if(checkRequired([email])){
       checkEmail(email);
+    }
+    if(checkRequired([password])){
+      checkLength(password, 6, 25);
+    }
+    if(checkRequired([password2])){
       checkPasswordsMatch(password, password2);
     }
   
