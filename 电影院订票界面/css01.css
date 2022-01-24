@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+:root{
+    --selected-color: #6feaf6;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    display: flex;
+    background-color: #242333;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pick{
+    margin: 20px 0 40px;
+    
+}
+
+label{
+    color: white;
+}
+
+#movie{
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+#showInstance{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.1) ;
+    border: 0 solid rgba(0, 0, 0, 0.1) ;
+    border-radius: 5px;
+    color: #777;
+    width: 270px;
+    padding: 2px 10px 2px;
+}
+
+li{
+    display: flex;
+}
+
+#screen{
+    width: 80%;
+    height: 140px;
+    background-color: white;
+    transform: perspective(0.5em)  rotateX(-45deg);
+    box-shadow: 0 3px 10px rgb(255 255 255 / 70%);
+}
+
+#seats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0 30px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+.seat,.selected,.occupied{
+    width: 12px;
+    height: 15px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    margin: 4px;
+}
+
+.row *:nth-child(2){
+    margin-right: 18px;
+}
+.row *:nth-child(7){
+    margin-left: 18px;
+}
+
+.seat{
+    background-color: #444451;
+}
+
+.occupied{
+    background-color: white;
+}
+
+.selected{
+    background-color: var(--selected-color);
+}
