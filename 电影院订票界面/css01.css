@@ -25,6 +25,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    perspective: 1000px;
 }
 
 #pick{
@@ -59,18 +60,24 @@ li{
 }
 
 #screen{
+    
     width: 80%;
-    height: 140px;
+    height: 100px;
     background-color: white;
-    transform: perspective(0.5em)  rotateX(-45deg);
+    transform: rotateX(-45deg);
     box-shadow: 0 3px 10px rgb(255 255 255 / 70%);
 }
 
-#seats{
+#AllSeats{
+    perspective: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 20px 0 30px;
+}
+
+#message span{
+    color: turquoise;
 }
 
 .row{
@@ -100,6 +107,14 @@ li{
     background-color: white;
 }
 
+.seat:not(.occupied):hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+
+
 .selected{
     background-color: var(--selected-color);
 }
+
